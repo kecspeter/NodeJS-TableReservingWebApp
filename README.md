@@ -14,7 +14,7 @@ It was created as a homework to the "Server Side JavaScript" (2022. spring) cour
 To use the software, You need to docker build the NodeJS app, tag it then start it with docker-compose.
 ```
 DOCKER_BUILDKIT=1 docker build . -t my_nodejs-app
-sudo docker tag my_nodejs-app:latest my_nodejs-app:staging
+docker tag my_nodejs-app:latest my_nodejs-app:staging
 docker-compose up
 ```
 
@@ -26,5 +26,5 @@ On this page the User can modify or delete a Csapat.
 ![Idopontok screen](idopontok.jpg)
 
 Second page is the Idopontok screen. Here the User can add a new "Idopont" to the DB. 
-On this page the User can only delete (and not modify) a Idopont.
+On this page the User can only delete (and not modify) an Idopont.
 
