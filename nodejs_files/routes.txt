@@ -1,0 +1,62 @@
+DnD helyfoglaló:
+- index.html                - induló felület (csapatok-ra irányít át)
+- csapatok.html             - az összes tárolt csapatokat listázza táblázatként
+- csapat_hozzaadasa.html    - új csapat hozzáadása post formban
+- csapat_modositasa.html    - kiválaszottt csapat módosítása 
+- idopontok.html            - összes tárolt időpont listázása táblázatként
+- idopontok_hozzaadasa.html - új időpont hozzáadása
+
+Routing:
+
+middlewares/csapat
+getCsapatokMW
+getCsapatMW
+saveCsapatMW
+updateCsapatMW
+delCsapatMW
+
+middlewares/idopont
+getIdopontokMW
+saveIdopontMW
+delIdopontMW
+
+middlewares/generic
+renderMW
+mainRedirectMW
+
+
+
+
+GET /                               - index.html
+    mainRedirectMW
+
+
+GET /csapatok                       - csapatok.html
+    getCsapatokMW
+    renderMW(csapatok.html)
+
+USE /csapat/edit/:csapatid          - csapat_modositasa.html
+    getCsapatMW
+    updateCsapatMW
+    renderMW(csapat_modositasa.html)
+
+USE /csapat_hozzaadasa              - csapat_hozzaadasa.html
+    saveCsapatMW
+    renderMW(csapat_hozzaadasa.html)
+
+USE /csapat/delete/:csapatid        - csapat_modositasa.html
+    getCsapatMW
+    delCsapatMW
+
+
+GET /idopontok                      - idopontok
+    getIdopontokMW
+    renderMW(idopontok.html)
+
+USE /idopontok_hozzaadasa           - idopontok_hozzaadasa.html
+    saveIdopontMW
+    renderMW(idopontok_hozzaadasa.html)
+
+USE /idopont/delete/:idopontid      - kiválasztott időpont törlése
+    getCsapatMW
+    delCsapatMW

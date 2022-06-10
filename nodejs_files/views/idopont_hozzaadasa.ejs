@@ -1,0 +1,49 @@
+<%- include('header') %>
+<%- include('nav-bar') %>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="page-name">
+                    Időpont hozzáadása
+                </h2>
+                <form method="POST">
+                    <div class="form-group">
+                        <label for="reservedate">Foglalás dátuma</label>
+                        <input type="date" class="form-control" id="reservedate" name="reservedate"
+                                placeholder="2022-01-01">
+                    </div>
+                    <div class="form-group">
+                        <label for="starttime">Kezdés időpontja</label>
+                        <input type="time" class="form-control" id="starttime" name="starttime"
+                                placeholder="00:00">
+                    </div>
+                    <div class="form-group">
+                        <label for="endtime">Befejezés időpontja</label>
+                        <input type="time" class="form-control" id="endtime" name="endtime"
+                                placeholder="00:00">
+                    </div>
+                    <div class="form-group">
+                        <label for="roomnum">Asztal száma</label>
+                        <input type="number" class="form-control" id="tablenum" name="tablenum"
+                                placeholder="# asztal">
+                    </div>
+                    <div class="form-group">
+                        <label for="csapatname">Csapat neve</label>
+                        <input class="form-control" list="datalistOptions" name="csapatname" id="csapatname" placeholder="Type to search...">
+                        <datalist id="datalistOptions">
+                            <% csapatok.forEach(function(item) {%>
+                            <option value="<%= item.name  %>">
+                            <% }); %>
+                        </datalist>
+                    </div>
+
+                    
+                    <input type="submit" class="btn btn-primary" value="Hozzáadás"/>
+                    <a class="btn btn-link" href="/idopontok">Mégsem</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+<%- include('footer') %>

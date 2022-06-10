@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>DnD helyfoglaló - Időpont hozzáadása</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="py-2 bg-light border-bottom">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link" href="csapatok.html">Csapatok</a>
+                </li> 
+                <li class="nav-item">
+                    <a class="nav-link active" href="idopontok.html">Időpontok</a>
+                </li> 
+            </ul>
+        </nav>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="page-name">
+                    Időpont hozzáadása
+                </h2>
+                <form method="POST">
+                    <div class="form-group">
+                        <label for="reservedate">Foglalás dátuma</label>
+                        <input type="date" class="form-control" id="reservedate" name="reservedate"
+                                placeholder="2022-01-01">
+                    </div>
+                    <div class="form-group">
+                        <label for="starttime">Kezdés időpontja</label>
+                        <input type="time" class="form-control" id="starttime" name="starttime"
+                                placeholder="00:00">
+                    </div>
+                    <div class="form-group">
+                        <label for="endtime">Befejezés időpontja</label>
+                        <input type="time" class="form-control" id="endtime" name="endtime"
+                                placeholder="00:00">
+                    </div>
+                    <div class="form-group">
+                        <label for="roomnum">Asztal száma</label>
+                        <input type="number" class="form-control" id="roomnum" name="roomnum"
+                                placeholder="# asztal">
+                    </div>
+                    <div class="form-group">
+                        <label for="groupname">Csapat neve</label>
+                        <input type="text" class="form-control" id="groupname" name="groupname"
+                                placeholder="SampleTeam">
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Hozzáadás"/>
+                    <a class="btn btn-link" href="idopontok.html">Mégsem</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+    
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

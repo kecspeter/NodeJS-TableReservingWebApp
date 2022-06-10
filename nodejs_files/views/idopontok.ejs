@@ -1,0 +1,72 @@
+<%- include('header') %>
+<%- include('nav-bar') %>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="page-name">Időpontok</h2>
+                <a href="/idopont/new" class="btn btn-primary ">Időpont hozzáadása</a>
+                <table class="table table-striped table-bordered">
+                    <tr>
+                        <th>
+                            Foglalás dátuma
+                        </th>
+                        <th>
+                            Kezdő időpont
+                        </th>
+                        <th>
+                            Vég időpont
+                        </th>
+                        <th>
+                            Asztal száma
+                        </th>
+                        <th>
+                            Csapat neve
+                        </th>
+                        <th>
+                            &nbsp;
+                        </th>
+                    </tr>
+                    <% idopontok.forEach(function(item) {%>
+                    <tr class="list-item">
+                        <th>
+                            <%= item.reservedDate.getFullYear() + "." + 
+                            (item.reservedDate.getMonth().toString().length == 1 ? "0"+ (item.reservedDate.getMonth()+1) : (item.reservedDate.getMonth()+1))+"." + 
+                            (item.reservedDate.getDate().toString().length == 1 ? "0"+ item.reservedDate.getDate() : item.reservedDate.getDate())+"." %>
+                        </th>
+                        <th>
+                            <%= (item.startTime.getHours().toString().length == 1 ? "0"+ item.startTime.getHours() : item.startTime.getHours())+":" + 
+                            (item.startTime.getMinutes().toString().length == 1 ? "0"+ item.startTime.getMinutes() : item.startTime.getMinutes()) %>
+                        </th>
+                        <th>
+                            <%= (item.endTime.getHours().toString().length == 1 ? "0"+ item.endTime.getHours() : item.endTime.getHours())+":" + 
+                            (item.endTime.getMinutes().toString().length == 1 ? "0"+ item.endTime.getMinutes() : item.endTime.getMinutes()) %>
+                        </th>
+                        <th>
+                            <%= item.tablenum %>. asztal
+                        </th>
+                        <th>
+                            
+                            <%= (csapatok.find((csapat) => {
+                                    return csapat._id.toString() === item.teamid.toString()
+                                })) === undefined ? 
+                                    "Törölt csapat" : 
+                                    (csapatok.find((csapat) => {
+                                        return csapat._id.toString() === item.teamid.toString()
+                                    })).name  
+                            %>
+                        </th>
+                        <th>
+                            <div class="btn-group" role="group" aria-label="edit">
+                                <a type="button" class="btn btn-danger" href="/idopont/<%= item.id %>/delete">Törlés</a>
+                              </div>
+                        </th>
+                    </tr>
+                    <% }); %>
+                </table>
+                <br/>
+            </div>
+        </div>
+    </div>
+
+</div>
+<%- include('footer') %>

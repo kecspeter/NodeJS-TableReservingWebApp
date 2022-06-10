@@ -1,0 +1,13 @@
+version: '2.3'
+services: 
+  mongo:
+    image: mongo
+    environment:
+      MONGO_INITDB_DATABASE: xz9i7f
+  nodejs_server:
+    image: my_nodejs-app:staging  
+    restart: on-failure
+    environment:
+      DB_URI: mongodb://mongo/xz9i7f
+    ports:
+      - 3000:3000

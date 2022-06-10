@@ -1,0 +1,20 @@
+<div class="container">
+    <nav class="py-2 bg-light border-bottom">
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <% if (csapat) { %>
+                    <a class="nav-link active" href="/csapatok">Csapatok</a>
+                  <% } else {%>
+                    <a class="nav-link" href="/csapatok">Csapatok</a>    
+                <% }%>
+            </li> 
+            <li class="nav-item">
+                <% if (csapat) { %>
+                    <a class="nav-link" href="/idopontok">Időpontok</a>
+                  <% } else {%>
+                    <a class="nav-link active" href="/idopontok">Időpontok</a>    
+                <% }%>
+            </li> 
+        </ul>
+    </nav>
+</div>
